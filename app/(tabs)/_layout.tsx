@@ -1,5 +1,5 @@
-import { Tabs } from 'expo-router';
-import { Chrome as Home, Search, Heart, User } from 'lucide-react-native';
+import { Tabs } from 'expo-router'; //permet to do the routing in the app 
+import { Chrome as Home, Film } from 'lucide-react-native'; //import the icons from lucide-react-native
 import React from 'react';
 export default function TabLayout() {
   return (
@@ -12,33 +12,20 @@ export default function TabLayout() {
         },
         tabBarActiveTintColor: '#E50914',
         tabBarInactiveTintColor: '#999',
-      }}>
-      <Tabs.Screen
-        name="index"
+      }}
+    >
+      <Tabs.Screen //tab.screen is used to create a tab in the bottom tab navigator
+        name="index" //this is the name of the screen that will be displayed when the tab is pressed.
         options={{
           title: 'Home',
           tabBarIcon: ({ size, color }) => <Home size={size} color={color} />,
         }}
       />
       <Tabs.Screen
-        name="search"
+        name="[id]" //this is the name of the screen that will be displayed when the tab is pressed, is already defined in the app directory.
         options={{
-          title: 'Search',
-          tabBarIcon: ({ size, color }) => <Search size={size} color={color} />,
-        }}
-      />
-      <Tabs.Screen
-        name="watchlist"
-        options={{
-          title: 'Watchlist',
-          tabBarIcon: ({ size, color }) => <Heart size={size} color={color} />,
-        }}
-      />
-      <Tabs.Screen
-        name="profile"
-        options={{
-          title: 'Profile',
-          tabBarIcon: ({ size, color }) => <User size={size} color={color} />,
+          title: 'Movie Details',
+          tabBarIcon: ({ size, color }) => <Film size={size} color={color} />,
         }}
       />
     </Tabs>

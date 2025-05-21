@@ -148,27 +148,7 @@ export default function HomeScreen() {
       {showFilters && (
         <View style={styles.filterContainer}>
           <ScrollView horizontal showsHorizontalScrollIndicator={false} style={styles.filterScroll}>
-            <TouchableOpacity
-              style={[styles.filterChip, selectedFilter === 'all' && styles.activeChip]}
-              onPress={() => setSelectedFilter('all')}>
-              <Text style={[styles.filterText, selectedFilter === 'all' && styles.activeFilterText]}>
-                All
-              </Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              style={[styles.filterChip, selectedFilter === 'movies' && styles.activeChip]}
-              onPress={() => setSelectedFilter('movies')}>
-              <Text style={[styles.filterText, selectedFilter === 'movies' && styles.activeFilterText]}>
-                Movies
-              </Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              style={[styles.filterChip, selectedFilter === 'series' && styles.activeChip]}
-              onPress={() => setSelectedFilter('series')}>
-              <Text style={[styles.filterText, selectedFilter === 'series' && styles.activeFilterText]}>
-                Series
-              </Text>
-            </TouchableOpacity>
+            
           </ScrollView>
 
           <ScrollView horizontal showsHorizontalScrollIndicator={false} style={styles.filterScroll}>
