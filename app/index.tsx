@@ -1,4 +1,5 @@
-import { useState } from 'react';
+//the page of login screen.
+import { useState } from 'react'; //
 import {
   StyleSheet,
   Text,
@@ -9,22 +10,20 @@ import {
   KeyboardAvoidingView,
   Platform,
   Image,
-} from 'react-native';
+} from 'react-native'; //import the necessssary components from react-native.
 import { router } from 'expo-router';
 import { Play } from 'lucide-react-native';
 import React from 'react';
 
 export default function LoginScreen() {
-  const [email, setEmail] = useState('');
+  const [email, setEmail] = useState(''); //state to store the email entered by the user.
   const [password, setPassword] = useState('');
-  const users = [
-    { email: 'abdou@example.com', password: 'password123' },
-    { email: 'yassin@example.com', password: 'secure456' },
-    { email: 'adil@example.com', password: 'adminpass' },
+  const users = [ 
+    { email: 'abdou@example.com', password: 'Password123' },
+    { email: 'yassin@example.com', password: 'Secure456' },
+    { email: 'adil@example.com', password: 'Adminpass' },
   ];
-  const handleLogin = () => {
-    // Implement login logic here
-    // For now, just check if the email and password match any user
+  const handleLogin = () => { //this fonction called when the user press the login button.
     const user = users.find((user) => user.email === email && user.password === password);
     if (!user) {
       alert('Invalid email or password');
@@ -47,7 +46,7 @@ export default function LoginScreen() {
         <View style={styles.overlay}>
           <View style={styles.logoContainer}>
             <Play size={40} color="#E50914" strokeWidth={3} />
-            <Text style={styles.logoText}>MovieFlix</Text>
+            <Text style={styles.logoText}>Watchmee</Text>
           </View>
 
           <View style={styles.formContainer}>
@@ -72,12 +71,7 @@ export default function LoginScreen() {
               <Text style={styles.loginButtonText}>Sign In</Text>
             </TouchableOpacity>
 
-            <View style={styles.footer}>
-              <Text style={styles.footerText}>Don't have an account?</Text>
-              <TouchableOpacity onPress={() => router.push('/signup')}>
-                <Text style={styles.signupText}>Sign Up</Text>
-              </TouchableOpacity>
-            </View>
+     
           </View>
         </View>
       </KeyboardAvoidingView>

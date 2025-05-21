@@ -147,7 +147,7 @@ export default function MovieDetails() {
         {getDirector() && (
           <View style={styles.section}>
             <Text style={styles.sectionTitle}>Director</Text>
-            <Text style={styles.directorName}>{getDirector().name}</Text>
+            {getDirector() && <Text style={styles.directorName}>{getDirector()?.name}</Text>}
           </View>
         )}
 
