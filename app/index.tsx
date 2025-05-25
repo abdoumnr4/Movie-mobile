@@ -8,30 +8,23 @@ import {
   ImageBackground,
   KeyboardAvoidingView,
   Platform,
-  Image,
+  Alert,
 } from 'react-native';
 import { router } from 'expo-router';
 import { Play } from 'lucide-react-native';
 import React from 'react';
+import { useAuth } from './context/AuthContext';
 
 export default function LoginScreen() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const users = [
-    { email: 'abdou@example.com', password: 'password123' },
-    { email: 'yassin@example.com', password: 'secure456' },
-    { email: 'adil@example.com', password: 'adminpass' },
-  ];
-  const handleLogin = () => {
-    // Implement login logic here
-    // For now, just check if the email and password match any user
-    const user = users.find((user) => user.email === email && user.password === password);
-    if (!user) {
-      alert('Invalid email or password');
-      return;
-    }else{
-  
-      router.push('/(tabs)');
+  const { login } = useAuth();
+
+  const handleLogin = async () => {
+    try {
+      await login(email, password);
+    } catch (error) {
+      Alert.alert('Erreur', 'Email ou mot de passe incorrect');
     }
   };
 
@@ -74,8 +67,8 @@ export default function LoginScreen() {
 
             <View style={styles.footer}>
               <Text style={styles.footerText}>Don't have an account?</Text>
-              <TouchableOpacity onPress={() => router.push('/signup')}>
-                <Text style={styles.signupText} onPress={() => router.push('/auth/register')}>Sign Up</Text>
+              <TouchableOpacity onPress={() => router.push('/auth/register')}>
+                <Text style={styles.signupText}>Sign Up</Text>
               </TouchableOpacity>
             </View>
           </View>
