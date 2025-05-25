@@ -47,7 +47,7 @@ export default function LoginScreen() {
         <View style={styles.overlay}>
           <View style={styles.logoContainer}>
             <Play size={40} color="#E50914" strokeWidth={3} />
-            <Text style={styles.logoText}>MovieFlix</Text>
+            <Text style={styles.logoText}>WatchMe</Text>
           </View>
 
           <View style={styles.formContainer}>
