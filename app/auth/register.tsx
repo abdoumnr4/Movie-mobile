@@ -21,7 +21,7 @@ const RegisterScreen = () => {
   });
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [showPassword, setShowPassword] = useState(false);
-
+//validation email et password
   const validateEmail = (email: string) => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return emailRegex.test(email);
@@ -42,7 +42,7 @@ const RegisterScreen = () => {
       hasSpecialChar
     );
   };
-
+//validation de la forme
   const validateForm = () => {
     const newErrors: Record<string, string> = {};
 
@@ -74,7 +74,7 @@ const RegisterScreen = () => {
   const handleRegister = async () => {
     if (validateForm()) {
       try {
-        // TODO: Implémenter la logique d'inscription avec votre backend
+        //  Implémenter la logique d'inscription avec votre backend
         Alert.alert('Succès', 'Inscription réussie !');
         router.replace('/auth/login');
       } catch (error) {
